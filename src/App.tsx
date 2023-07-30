@@ -9,11 +9,14 @@ import routerBindings, {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
-import { MuiInferencer } from "@refinedev/inferencer/mui";
 
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { dataProvider } from "./dataProvider";
+import { BlogPostCreate } from "./pages/blog-posts/create";
+import { BlogPostEdit } from "./pages/blog-posts/edit";
+import { BlogPostList } from "./pages/blog-posts/list";
+import { BlogPostShow } from "./pages/blog-posts/show";
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
                   show: "/blog-posts/show/:id",
                   create: "/blog-posts/create",
                   edit: "/blog-posts/edit/:id",
+                  meta: {
+                    canDelete: true,
+                  },
                 },
               ]}
               options={{
@@ -53,19 +59,10 @@ function App() {
                 >
                   <Route index element={<WelcomePage />} />
                   <Route path="blog-posts">
-                    <Route index element={<MuiInferencer />} />
-                    <Route
-                      path="show/:id"
-                      element={<MuiInferencer />}
-                    />
-                    <Route
-                      path="edit/:id"
-                      element={<MuiInferencer />}
-                    />
-                    <Route
-                      path="create"
-                      element={<MuiInferencer />}
-                    />
+                    <Route index element={<BlogPostList />} />
+                    <Route path="show/:id" element={<BlogPostShow />}/>
+                    <Route path="edit/:id" element={<BlogPostEdit />}/>
+                    <Route path="create" element={<BlogPostCreate />}/>
                   </Route>
                 </Route>
               </Routes>
