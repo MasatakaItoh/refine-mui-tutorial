@@ -3,7 +3,7 @@ import { DataProvider, HttpError, CrudFilters, CrudOperators } from "@refinedev/
 import { stringify } from "query-string";
 
 // Error handling with axios interceptors
-const axiosInstance = axios.create();
+export const axiosInstance = axios.create();
 
 axiosInstance.interceptors.response.use(
   (response) => {
