@@ -9,10 +9,11 @@ import routerBindings, {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
-import dataProvider from "@refinedev/simple-rest";
 import { MuiInferencer } from "@refinedev/inferencer/mui";
+
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { ColorModeContextProvider } from "./contexts/color-mode";
+import { dataProvider } from "./dataProvider";
 
 function App() {
   return (
